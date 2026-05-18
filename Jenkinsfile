@@ -8,12 +8,6 @@ pipeline {
 
   stages {
 
-    stage('checkout'){
-      steps{
-        git 'https://github.com/KunalKakatkar/APIAutomation.git'
-      }
-    }
-
     stage('compile'){
       steps{
         bat 'mvn compile'
@@ -47,27 +41,14 @@ pipeline {
   }
 
   post {
-    always{
-      emailext(
-        subject:
-                "Build Status: ${currentBuild.currentResult}",
 
-                body:
-                """
-                Build Result:
-                ${currentBuild.currentResult}
+        success {
+            echo 'Pipeline executed successfully'
+        }
 
-                Job Name:
-                ${env.JOB_NAME}
-
-                Build Number:
-                ${env.BUILD_NUMBER}
-                """,
-
-                to: 'kunalkakatkar16@gmail.com'
-        )
-        
-      }
+        failure {
+            echo 'Pipeline execution failed'
+        }
     }
   }
   
