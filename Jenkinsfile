@@ -37,7 +37,7 @@ pipeline {
         publishHTML([
           reportDir: 'Reports',
           reportFiles: 'APIReport_*.html',
-          reportName: 'API Report'
+          reportName: 'API Report',
           keepAll: true,
           alwaysLinkToLastBuild: true,
           allowMissing: false
