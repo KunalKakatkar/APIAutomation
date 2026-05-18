@@ -62,10 +62,9 @@ pipeline {
                 """,
 
                 to: 'kunalkakatkar16@gmail.com'
+        )
         
       }
     }
   }
   
-
-}
