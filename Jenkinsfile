@@ -3,7 +3,7 @@ pipeline {
   agent any
 
   tools {
-    maven 'Maven'
+    maven 'MAVEN-3.9.9'
   }
 
   stages {
@@ -38,6 +38,9 @@ pipeline {
           reportDir: 'Reports',
           reportFiles: 'APIReport_*.html',
           reportName: 'API Report'
+          keepAll: true,
+          alwaysLinkToLastBuild: true,
+          allowMissing: false
           ])
       }
     }
